@@ -1,1 +1,7 @@
-<p>layout works!</p>
+<app-headers></app-headers>
+<mat-drawer-container class="admin-container">
+    <mat-drawer mode="side" opened class="admin-left"><app-sidebar></app-sidebar></mat-drawer>
+    <mat-drawer-content class="router-outlet"><router-outlet></router-outlet></mat-drawer-content>
+  </mat-drawer-container>
+  <app-footers></app-footers>
+  
