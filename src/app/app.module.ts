@@ -7,6 +7,7 @@ import { AdminModule } from './admin/admin.module';
 import { UiModule } from './ui/ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,9 +23,10 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
     AdminModule,
     UiModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{provide:"baseUrl",useValue:"https://localhost:7012/api",multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
