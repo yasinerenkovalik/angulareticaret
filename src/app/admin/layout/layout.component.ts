@@ -15,7 +15,7 @@ export class LayoutComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.alertify.message("merhaba",{messageType:MessageType.Success,position:Position.TopRight});
+    
   }
 
 }

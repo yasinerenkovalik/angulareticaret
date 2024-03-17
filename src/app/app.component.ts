@@ -9,12 +9,6 @@ declare var $:any
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-angular-project2';
-  constructor(private toastr:CustomeToastrService){
-    toastr.message("merhaba","yasin",{
-      messageType:ToastrMessageType.Error,
-      position:ToastrPosition.BottomFullWidth
-    })
-  }
+  
 }
 
