@@ -17,6 +17,7 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
 
   constructor(private productService:ProductService,spinner:NgxSpinnerService,private aletify:AlertifyService) {super(spinner) }
   ngAfterViewInit(): void {
+    
    
     
   }
@@ -35,6 +36,7 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
   }))
   console.log(allProducts)
   this.dataSource = new MatTableDataSource<List_Product>(allProducts);
+  this.dataSource.paginator=this.paginator;
  
    
   }
