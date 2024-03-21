@@ -25,20 +25,24 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
   dataSource: MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
- 
+ async getPorduct(){
+  this.showSpinner(SpinnerType.BallAtom);
+  const allProducts:{totalCount:number,products:List_Product[]}= await this.productService.read(this.paginator?this.paginator.pageIndex:0,this.paginator?this.paginator.pageSize:5, () => this.hideSpinner(SpinnerType.BallAtom), errorMessage => this.aletify.message(errorMessage, {
+     dismissOthers: true,
+     messageType: MessageType.Error,
+     position: Position.TopRight
+   }))
+   console.log(allProducts)
+   this.dataSource = new MatTableDataSource<List_Product>(allProducts.products);
+   this.paginator.length=allProducts.totalCount;
+   
+ }
+ async pageChange(){
+  await this.getPorduct();
+ }
 
  async ngOnInit(){
-  this.showSpinner(SpinnerType.BallAtom);
- const allProducts:List_Product[]= await this.productService.read( () => this.hideSpinner(SpinnerType.BallAtom), errorMessage => this.aletify.message(errorMessage, {
-    dismissOthers: true,
-    messageType: MessageType.Error,
-    position: Position.TopRight
-  }))
-  console.log(allProducts)
-  this.dataSource = new MatTableDataSource<List_Product>(allProducts);
-  this.dataSource.paginator=this.paginator;
- 
-   
+    await this.getPorduct();
   }
 
 }
