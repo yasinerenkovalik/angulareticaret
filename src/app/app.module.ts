@@ -10,9 +10,13 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
+  
+   
   
   ],
   imports: [

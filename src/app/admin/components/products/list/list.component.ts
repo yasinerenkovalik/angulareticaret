@@ -1,12 +1,13 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { List_Product } from 'src/app/contracts/list_product';
 import { AlertifyService, MessageType, Position } from 'src/app/services/admin/alertify.service';
 import { ProductService } from 'src/app/services/common/models/product.service';
+
+declare var $:any;
 
 @Component({
   selector: 'app-list',
@@ -21,7 +22,7 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
    
     
   }
-  displayedColumns: string[] = ['name', 'stock', 'price', 'cDateTime', 'updDateTime' ];
+  displayedColumns: string[] = ['name', 'stock', 'price', 'cDateTime', 'updDateTime','delete','edit' ];
   dataSource: MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -39,6 +40,11 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
  }
  async pageChange(){
   await this.getPorduct();
+ }
+ remove(id,event){
+
+  
+
  }
 
  async ngOnInit(){

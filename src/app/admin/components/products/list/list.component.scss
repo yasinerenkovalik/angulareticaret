@@ -2,3 +2,12 @@
   width: 6  00px;
   margin-left: 80px;
 }
+.mat-column-name,
+.mat-column-stock,
+.mat-column-price,
+.mat-column-cDateTime,
+.mat-column-updDateTime,
+.mat-column-edit,
+.mat-column-delete {
+  padding-right: 10px; /* İstenilen boşluğa göre değeri ayarlayabilirsiniz */
+}
