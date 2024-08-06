@@ -28,7 +28,15 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
 
  async getPorduct(){
   this.showSpinner(SpinnerType.BallAtom);
-  const allProducts:{totalCount:number,products:List_Product[]}= await this.productService.read(this.paginator?this.paginator.pageIndex:0,this.paginator?this.paginator.pageSize:5, () => this.hideSpinner(SpinnerType.BallAtom), errorMessage => this.aletify.message(errorMessage, {
+  const allProducts:{
+    totalCount:number,
+    products:List_Product[]}= 
+    await this.productService.read(
+      this.paginator?this.paginator.pageIndex:0,
+      this.paginator?this.paginator.pageSize:5, 
+      () => this.hideSpinner(SpinnerType.BallAtom), 
+      errorMessage => 
+      this.aletify.message(errorMessage, {
      dismissOthers: true,
      messageType: MessageType.Error,
      position: Position.TopRight
@@ -42,9 +50,6 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
   await this.getPorduct();
  }
  remove(id,event){
-
-  
-
  }
 
  async ngOnInit(){
