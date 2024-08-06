@@ -26,7 +26,7 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
   dataSource: MatTableDataSource<List_Product> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
- async getPorduct(){
+ async getProduct(){
   this.showSpinner(SpinnerType.BallAtom);
   const allProducts:{
     totalCount:number,
@@ -47,13 +47,13 @@ export class ListComponent extends BaseComponent implements OnInit,AfterViewInit
    
  }
  async pageChange(){
-  await this.getPorduct();
+  await this.getProduct();
  }
  remove(id,event){
  }
 
  async ngOnInit(){
-    await this.getPorduct();
+    await this.getProduct();
   }
 
 }
